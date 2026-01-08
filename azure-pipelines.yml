@@ -15,6 +15,16 @@ jobs:
   displayName: Run tests in parallel
 
   steps:
+  - task: VSTest@3
+    inputs:
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: |
+        **\bin\**\*test.dll
+        **\bin\**\*tests.dll
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+      runOnlyImpactedTests: true
+      runAllTestsAfterXBuilds: '3'
+
   - task: UseDotNet@2
     displayName: 'Use .NET sdk 8.0.x'
     inputs:
@@ -45,6 +55,7 @@ jobs:
       projects: '**/*Tests/*Tests.csproj'
       useGlobalJson: true
       arguments: '--no-build --filter "$(targetTestsFilter)"'
+
   - task: PublishCodeCoverageResults@2
     inputs:
       summaryFileLocation: 'CodeCoverage/coverage.xml'

@@ -58,4 +58,4 @@ jobs:
 
   - task: PublishCodeCoverageResults@2
     inputs:
-      summaryFileLocation: 'CodeCoverage/coverage.xml'
+      summaryFileLocation: $(System.DefaultWorkingDirectory)

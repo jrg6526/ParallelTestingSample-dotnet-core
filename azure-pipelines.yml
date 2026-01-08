@@ -9,7 +9,7 @@ schedules:
 jobs:
 - job: 'ParallelTesting'
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'windows-latest'
   strategy:
     parallel: 5
   displayName: Run tests in parallel

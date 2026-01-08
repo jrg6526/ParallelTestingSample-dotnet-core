@@ -45,3 +45,6 @@ jobs:
       projects: '**/*Tests/*Tests.csproj'
       useGlobalJson: true
       arguments: '--no-build --filter "$(targetTestsFilter)"'
+  - task: PublishCodeCoverageResults@2
+    inputs:
+      summaryFileLocation: 'CodeCoverage/coverage.xml'

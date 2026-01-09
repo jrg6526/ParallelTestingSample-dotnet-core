@@ -52,7 +52,7 @@ jobs:
     displayName: Test
     inputs:
       command: test
-      projects: '**/*Tests/*Tests.csproj'
+      projects: '**/TipCalcTest/TipUnitTest.csproj'
       useGlobalJson: true
       arguments: '--no-build --filter "$(targetTestsFilter)"'
 
